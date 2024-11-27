@@ -5,7 +5,9 @@ reqUrl = "https://api.open-meteo.com/v1/forecast"
 leeds_forecast = {
     "latitude": 53.7965,
     "longitude": -1.5478,
-    "duration_days": 14
+    "duration_days": 14,
+    "forecast_start_date": "2024-11-27",
+    "forecast_end_date": "2024-11-28"
 }
 
 query_parameters = {
@@ -13,7 +15,9 @@ query_parameters = {
     "longitude": leeds_forecast["longitude"],
     "daily": "weather_code",
     "timezone": "Europe/London",
-    "forecast_days": leeds_forecast["duration_days"]
+    # "forecast_days": leeds_forecast["duration_days"],
+    "start_date": leeds_forecast["forecast_start_date"],
+    "end_date": leeds_forecast["forecast_end_date"]
 }
 
 response = requests.get(reqUrl, params = query_parameters)
